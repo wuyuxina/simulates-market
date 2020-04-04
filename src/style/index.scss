@@ -1,0 +1,120 @@
+
+/*
+   *
+     *****底部导航栏样式
+   *
+*/
+.footerBar{
+  overflow: hidden;height: 52px;position: fixed;bottom: 0px;left: 0px;width: 100%;
+  .footer_ul{
+    overflow: hidden;width: 100%; background: #d62727; height: 100%;box-shadow: 1px 2px 0px 3px #eee;display: flex;justify-content: space-between;
+    li{
+      flex: 1;
+       a{
+         display: flex;justify-content: center;flex-direction: column;height: 100%;
+         i{
+           font-size: 19px;color: #f2f2f2;text-align: center;padding-bottom: 3px;
+         }
+         .fotr_title{
+           font-size: 12px;color: #f2f2f2;display: block;text-align: center;
+         }
+       }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

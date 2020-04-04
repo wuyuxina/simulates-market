@@ -11,6 +11,9 @@
   opacity: 0;
 }
 
+
+
+
 /*fade-transform*/
 .fade-transform-leave-active,
 .fade-transform-enter-active {
@@ -26,6 +29,25 @@
   opacity: 0;
   transform: translateX(30px);
 }
+
+
+
+/*fade-left*/
+.fade-left-leave-active,
+.fade-left-enter-active {
+  transition: all .5s;
+}
+
+.fade-left-enter {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.fade-left-leave-to {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
 
 /*fade*/
 .breadcrumb-enter-active,
