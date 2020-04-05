@@ -19,7 +19,7 @@
           </router-link>
         </div>
         <div class="bar_home__right" slot="right">
-          <router-link to="">登录</router-link>
+          <router-link to="/login">登录</router-link>
         </div>
       </header-bar>
     </div>

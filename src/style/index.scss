@@ -1,6 +1,6 @@
 /*
    *
-     ***********头部导航栏样式**************
+     ***********公共头部导航栏样式**************
    *
 */
 .headerBar{
@@ -23,7 +23,7 @@
 
 /*
    *
-     ***********底部导航栏样式**************
+     ***********公共底部导航栏样式**************
    *
 */
 .footerBar{
@@ -74,7 +74,33 @@
   .serch_title{
     flex: 1;height: 29px;font-size: 12px;color: #757272;text-align: left;
   }
+  .serch_title_input{
+    background:#f6f6f6;border: none;
+  }
 }
+/*
+   *
+     ***********登录页面样式开始**************
+   *
+*/
+.login{
+  .titles,.title_saiban{
+    text-align: center;color: #26a2ff;font-size: 22px;line-height: 80px;
+  }
+  .title_saiban{
+    font-size: 16px;
+  }
+  overflow: hidden;height: 100%;width: 100%;background:url("./../assets/image/login.png")no-repeat 100% 100%;background-size: 100% 100%; position: relative;background: none;
+  .row_col{
+    position: absolute;left: 0px;top: 40%;transform: translateY(-50%);width: 100%;background: none;
+    .user_login{
+    }
+  }
+  .login_btn{
+    position: absolute;left: 5%;top: 55%;width: 90%;
+  }
+}
+
 /*
    *
      ***********首页样式开始**************
