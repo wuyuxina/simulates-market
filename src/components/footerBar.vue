@@ -1,10 +1,11 @@
 <template>
     <div class="footerBar">
+      <div class="fill_footer"></div>
       <ul class="footer_ul">
 <!--        循环底部导航栏-->
         <li v-for="(item,index) in footerbar" :key="item.index">
-         <router-link :to="item.url">
-           <i class="iconfont icon-wode" :class="item.iconfotr"></i>
+         <router-link :to="item.url" :class="paths==item.url?'activefooter':''">
+             <i class="iconfont icon-wode" :class="item.iconfotr"></i>
            <span class="fotr_title">{{item.title}}</span>
          </router-link>
         </li>
@@ -17,7 +18,8 @@
         name: "footerBar",
         data(){
             return{
-                footerbar:[
+                paths:null,//定义切换类
+                footerbar:[//底部导航栏的数据渲染
                     {
                         url:'/home',
                         iconfotr:'icon-shouye',
@@ -44,6 +46,22 @@
                         title:'我的'
                     }
                 ],
+            }
+        },
+        mounted(){
+            this.actives();
+        },
+        methods:{
+           actives(){
+               const path=this.$route.path.split('/')
+               this.paths='/'+path[1]
+           }
+        },
+        watch:{
+            //切换active按钮样式
+            '$route'(to,from){
+                const path=to.path.split('/')
+                this.paths='/'+path[1];
             }
         }
     }

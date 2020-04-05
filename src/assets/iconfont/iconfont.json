@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "9148967",
+      "name": "消息",
+      "font_class": "weimingmingwenjianjia_xiaoxi",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "5924468",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "339044",
+      "name": "菜单",
+      "font_class": "caidan",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
       "icon_id": "425652",
       "name": "我的",
       "font_class": "wode",

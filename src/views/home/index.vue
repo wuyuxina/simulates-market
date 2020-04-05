@@ -1,22 +1,38 @@
 <template>
   <div class="home">
-    <header-bar></header-bar>
-    我是home里面的内容
-    <mt-button type="danger" >danger</mt-button>
-    <mt-button type="default">default</mt-button>
-    <mt-button type="primary">primary</mt-button>
+    <div class="header_home">
+      <div class="rbg_color"></div>
+<!--      头部导航的样式-->
+      <header-bar class="bar_home">
+        <div class="bar_home_left" slot="left">
+          <router-link to="/category">
+            <i class="iconfont icon-caidan"></i>
+          </router-link></div>
+        <div class="bar_home_center" slot="center">
+          <router-link to="/search">
+<!--            我是公共搜索框开始-->
+            <search>
+              <div class="show_JD" slot="show_jd">
+                      <span class="jd">JD</span>
+              </div>
+            </search>
+          </router-link>
+        </div>
+        <div class="bar_home__right" slot="right">
+          <router-link to="">登录</router-link>
+        </div>
+      </header-bar>
+    </div>
   </div>
 </template>
 
 <script>
-    import headerBar from "@/components/headerBar";
+  import headerBar from "../../components/headerBar";
+  import search from "../../components/search/search";
     export default {
-        components: {headerBar},
+        components:{headerBar,search},
         name: "index",
 
     }
 </script>
 
-<style scoped>
-
-</style>

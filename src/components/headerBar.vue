@@ -1,6 +1,12 @@
 <template>
   <div class="headerBar">
-    我是header内容
+    <div class="header">
+<!--      将slot用div包裹，因为不能直接操作插槽-->
+      <div class="left_nav"> <slot name="left"></slot></div>
+      <div class="center_nav"> <slot name="center"></slot></div>
+      <div class="right_nav"><slot name="right"></slot></div>
+    </div>
+    <div class="fill_header"></div>
   </div>
 </template>
 

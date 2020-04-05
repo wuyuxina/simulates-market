@@ -19,7 +19,7 @@ input,select,textarea{ font-size: 100%; vertical-align:middle;}
 ol,ul,li{list-style:none;}
 blockquote,q{quotes:none;}
 blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
-a{ color:#565656; text-decoration:none; background-color:transparent;display: block;}
+a{ color:#565656; text-decoration:none; background-color:transparent;display: block;font-size: 14px;}
 a:hover{text-decoration: none}
 a:focus{outline:0;}
 a:active, a:hover,a:link{
