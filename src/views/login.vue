@@ -25,7 +25,8 @@
 <script>
   //引入mint-ui toast提示
     import { Toast } from 'mint-ui';
-    export default {
+    import {service} from "../http/request";
+  export default {
         name: "login",
         data(){
             return{
@@ -37,7 +38,7 @@
 
         },
         methods:{
-        //点击提交按钮，验证提交的内容是否正确
+        //点击提交按钮，验证提交的内容是否正确,后向服务器发送请求
             primary(){
                 if(this.username==""||this.username==null){
                     Toast({
@@ -55,6 +56,13 @@
                     });
                     return true;
                 }
+                let data={
+                    username:this.username,
+                    password:this.password
+                }
+                service.post('/api/login/usernamePassword',data).then(function(res){
+                    console.log(res)
+                })
             }
         }
     }

@@ -1,8 +1,7 @@
 import axios from 'axios';
-// import {Message} from 'element-ui';
+import { Toast } from 'mint-ui';
 import Qs from 'querystring';
 import vm from '@/main';
-
 axios.defaults.withCredentials = true;
 // 创建axios实例
 const service = axios.create({
@@ -12,7 +11,6 @@ const service = axios.create({
     'Content-Type': 'application/json',
   },
 });
-
 // request拦截器请求拦截
 service.interceptors.request.use(
   (config) => {
@@ -21,7 +19,7 @@ service.interceptors.request.use(
     return config;
   },
   (error) => {
-    Promise.reject(error);
+    return  Promise.reject(error);
   },
 );
 
@@ -29,30 +27,33 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   (response) => {
     const res = response.data;
+
+    console.log(res)
     if (res.code === 999) {
-      Message({
+      Toast({
         message: '请登录',
-        type: 'info',
+        position: 'middle',
         duration: 3 * 1000,
       });
-      vm.$router.push('/login');
+      // vm.$router.push('/login');
       return res;
     }
     if (res.code === 200) {
+        console.log(res)
       return res;
     }else{
-      Message({
+      Toast({
         message: res.msg,
-        type: 'error',
+        position: 'bottom',
         duration: 3 * 1000,
       });
       return Promise.reject(new Error((res && res.msg) ? res.msg : 'Error'));
     }
   },
   (error) => {
-    Message({
+    Toast({
       message: error.message,
-      type: 'error',
+      position: 'bottom',
       duration: 3 * 1000,
     });
     return Promise.reject(error);
@@ -87,18 +88,18 @@ filereq.interceptors.response.use(
   (response) => {
     const res = response.data;
     if (res.code == 999) {
-      Message({
+      Toast({
         message: '请登录',
-        type: 'info',
+        position: 'bottom',
         duration: 3 * 1000,
       });
       vm.$router.push('/login');
       return res;
     }
     if (res.code !== 200) {
-      Message({
+      Toast({
         message: res.msg,
-        type: 'error',
+        position: 'bottom',
         duration: 3 * 1000,
       });
       return Promise.reject(new Error((res && res.msg) ? res.msg : 'Error'));
@@ -107,9 +108,9 @@ filereq.interceptors.response.use(
     }
   },
   (error) => {
-    Message({
+    Toast({
       message: error.message,
-      type: 'error',
+      position: 'bottom',
       duration: 3 * 1000,
     });
     return Promise.reject(error);

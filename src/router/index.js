@@ -15,6 +15,7 @@ const routes = [
         component: () => import('../views/home/index.vue'),
         meta: {
           title: '首页',
+          bottomsflags:true,
         },
       },
       {
@@ -83,5 +84,5 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
-
+// 路由守卫开始
 export default router

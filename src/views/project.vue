@@ -16,6 +16,14 @@
   import footerBar from "../components/footerBar";
     export default {
         components:{footerBar},
-        name: "project"
+        name: "project",
+        data(){
+            return{
+
+            }
+        },
+        methods:{
+
+        }
     }
 </script>

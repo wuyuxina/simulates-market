@@ -3,19 +3,19 @@ const path = require('path');
 function resolve(dir) {
   return path.join(__dirname,dir);
 }
-const baseUrl = 'http://192.168.1.31:6081/';
+const baseUrl = 'http://39.98.120.16:80/lvzhiApi';
 module.exports = {
   configureWebpack: {
     devtool: 'source-map',
   },
   devServer: {
-    port: 8080 , // 端口
+    port: 8050 , // 端口
     proxy: {
       '/api': {
         target: baseUrl,
         changeOrigin: true,
         pathRewrite: {
-          '^': ''
+          '^/api': ''
         }
       },
       '/upload': {

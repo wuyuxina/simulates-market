@@ -31,8 +31,7 @@
   import search from "../../components/search/search";
     export default {
         components:{headerBar,search},
-        name: "index",
-
+        name: "home"
     }
 </script>
 
