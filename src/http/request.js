@@ -38,7 +38,7 @@ service.interceptors.response.use(
       // vm.$router.push('/login');
       return res;
     }
-    if (res.code === 200) {
+    if (res.code === "AUTHENTICATION.JWT.TOKEN_EMPTY") {
         console.log(res)
       return res;
     }else{

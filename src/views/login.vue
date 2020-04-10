@@ -40,7 +40,8 @@
         methods:{
         //点击提交按钮，验证提交的内容是否正确,后向服务器发送请求
             primary(){
-                if(this.username==""||this.username==null){
+                var that=this;
+                if(that.username==""||that.username==null){
                     Toast({
                         message: '用户名不能为空',
                         position: 'bottom',
@@ -48,7 +49,7 @@
                     });
                     return  true;
                 }
-                if(this.password==""||this.password==null){
+                if(that.password==""||that.password==null){
                     Toast({
                         message: '密码不能为空',
                         position: 'bottom',
@@ -57,11 +58,14 @@
                     return true;
                 }
                 let data={
-                    username:this.username,
-                    password:this.password
+                    name:that.username,
+                    pwd:that.password
                 }
-                service.post('/api/login/usernamePassword',data).then(function(res){
-                    console.log(res)
+                service.post('/api/admin.water',data).then(function(res){
+                    Toast({ message:"登录成功", position: 'bottom', duration: 3 * 1000,});
+                    that.$router.replace({
+                        path:'/home'
+                    })
                 })
             }
         }
