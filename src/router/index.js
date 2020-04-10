@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
+import store from '../store'
 Vue.use(VueRouter)
 
 const routes = [
@@ -23,6 +23,7 @@ const routes = [
         component: () => import('../views/category/index.vue'),
         meta: {
           title: '分类',
+          bottomsflags:true,
         },
       },
       {
@@ -30,6 +31,7 @@ const routes = [
         component: () => import('../views/discover/index.vue'),
         meta: {
           title: '发现',
+          bottomsflags:true,
         },
       },
       {
@@ -37,6 +39,7 @@ const routes = [
         component: () => import('../views/shopCar/index.vue'),
         meta: {
           title: '购物车',
+          bottomsflags:true,
         },
       },
       {
@@ -44,6 +47,7 @@ const routes = [
         component: () => import('../views/mine/index.vue'),
         meta: {
           title: '我的',
+          bottomsflags:true,
         },
       },
       {
@@ -85,4 +89,15 @@ const router = new VueRouter({
   routes
 })
 // 路由守卫开始
+router.beforeEach((to,from,next)=>{
+   next();
+   //将当前切换页面的状态bottomsflags属性记录，供给判断底部导航栏的隐藏和显示
+   if(to.meta.bottomsflags){
+     let bottomsflags=true;
+     store.commit('bottomshow',bottomsflags)
+   }else{
+     let bottomsflags=false;
+     store.commit('bottomshow',bottomsflags)
+   }
+})
 export default router
