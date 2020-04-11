@@ -2,6 +2,7 @@ import axios from 'axios';
 import { Toast } from 'mint-ui';
 import Qs from 'querystring';
 import vm from '@/main';
+import { Indicator } from 'mint-ui';
 axios.defaults.withCredentials = true;
 // 创建axios实例
 const service = axios.create({
@@ -15,7 +16,14 @@ const service = axios.create({
 service.interceptors.request.use(
   (config) => {
     if (config.method === 'post') {
+      config.data = JSON.stringify({
+        ...config.data,
+      });
     }
+    Indicator.open({
+      text: 'Loading...',
+      spinnerType: 'fading-circle'
+    });
     return config;
   },
   (error) => {
@@ -26,9 +34,9 @@ service.interceptors.request.use(
 // response拦截器响应拦截
 service.interceptors.response.use(
   (response) => {
+    Indicator.close();
     const res = response.data;
-
-    console.log(res)
+    console.log("响应拦截的内容"+JSON.stringify(res))
     if (res.code === 999) {
       Toast({
         message: '请登录',
@@ -39,7 +47,7 @@ service.interceptors.response.use(
       return res;
     }
     if (res.code === "AUTHENTICATION.JWT.TOKEN_EMPTY") {
-        console.log(res)
+      Indicator.close();
       return res;
     }else{
       Toast({
@@ -51,6 +59,7 @@ service.interceptors.response.use(
     }
   },
   (error) => {
+    Indicator.close();
     Toast({
       message: error.message,
       position: 'bottom',
