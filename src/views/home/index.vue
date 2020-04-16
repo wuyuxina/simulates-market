@@ -27,7 +27,7 @@
     <div class="swpier">
       <mt-swipe :auto="4000" class="mt_swipe" >
         <mt-swipe-item v-for="item in imglist" :key="item.id" :id="item.shufflingid" class="mt_swipe_item">
-          <img :src="item.shufflingurl" />
+          <img :src="item.shuffingurls" />
         </mt-swipe-item>
       </mt-swipe>
     </div>
@@ -55,9 +55,14 @@
             // 请求轮播图数据
             httpswiper(){
                 let that=this;
-                 service.get('/api/shuffling_figure',{}).then(function(res){
-                     console.log(res)
-                     that.imglist=res;
+                 service.get('/api/shuffling_figure',{}).then(res=>{
+                     let listswiper=[];
+                     res.forEach((item,index)=>{
+                        let shuffingurls='http://123.57.254.38:8080/maven_water_pay/'+item.shufflingurl;
+                         item.shuffingurls=shuffingurls
+                         listswiper.push(item)
+                     })
+                     that.imglist=listswiper;
                  })
             }
         },
