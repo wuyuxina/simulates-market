@@ -13,7 +13,7 @@
 <!--            公共搜索框开始-->
             <search>
               <div class="show_JD" slot="show_jd">
-                      <span class="jd">JD</span>
+                      <span class="jd">WF</span>
               </div>
             </search>
           </router-link>
@@ -24,23 +24,18 @@
       </header-bar>
     </div>
     <!--      首页轮播开始-->
-    <div class="swpier">
-      <mt-swipe :auto="4000" class="mt_swipe" >
-        <mt-swipe-item v-for="item in imglist" :key="item.id" :id="item.shufflingid" class="mt_swipe_item">
-          <img :src="item.shuffingurls" />
-        </mt-swipe-item>
-      </mt-swipe>
-    </div>
+    <swiper :swiperList="imglist"></swiper>
   </div>
 </template>
 
 <script>
   import {service} from "../../http/request";
+  import swiper from "../../components/swiper";
   // import {  Toast } from "mint-ui"
   import headerBar from "../../components/headerBar";
   import search from "../../components/search/search";
     export default {
-        components:{headerBar,search},
+        components:{headerBar,search,swiper},
         name: "home",
         data(){
             return{
@@ -52,7 +47,7 @@
             this.httpswiper()
         },
         methods:{
-            // 请求轮播图数据
+            // 轮播图数据
             httpswiper(){
                 let that=this;
                  service.get('/api/shuffling_figure',{}).then(res=>{
