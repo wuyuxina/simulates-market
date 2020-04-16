@@ -58,15 +58,21 @@
                     return true;
                 }
                 let data={
-                    name:that.username,
+                    user:that.username,
                     pwd:that.password
                 }
-                service.post('/api/admin.water',data).then(function(res){
-                    Toast({ message:"登录成功", position: 'bottom', duration: 3 * 1000,});
-                    that.$router.replace({
-                        path:'/home'
-                    })
-                })
+               service.post('/api/admin.water',data).then(function(res) {
+                   Toast({message: "登录成功", position: 'bottom', duration: 3 * 1000,});
+                   that.$router.replace({
+                       path: '/home'
+                   })
+               })
+                // service.get('/api/shuffling_figure',{}).then(function(res){
+                //     Toast({ message:"登录成功", position: 'bottom', duration: 3 * 1000,});
+                //     that.$router.replace({
+                //         path:'/home'
+                //     })
+                // })
             }
         }
     }

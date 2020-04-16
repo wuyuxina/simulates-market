@@ -1,9 +1,9 @@
 <template>
 <!--  project作为跟页面-->
-  <div class="project">
-<!--    内容部分开始-->
-      <transition name="fade-left" mode="out-in">
-<!--        动画的使用条件 v-if,v-show,动态逐渐，逐渐根节点-->
+  <div class="project" id="project">
+      <!--    内容部分开始-->
+      <transition name="fade-left" mode="out-in" >
+        <!--        动画的使用条件 v-if,v-show,动态逐渐，逐渐根节点-->
         <router-view></router-view>
       </transition>
 <!--    底部导航栏开始-->

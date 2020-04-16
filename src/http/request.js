@@ -1,29 +1,30 @@
 import axios from 'axios';
+import Vue from "vue";
 import { Toast } from 'mint-ui';
 import Qs from 'querystring';
 import vm from '@/main';
-import { Indicator } from 'mint-ui';
+// import { Indicator } from 'mint-ui';
 axios.defaults.withCredentials = true;
+
 // 创建axios实例
 const service = axios.create({
   baseURL: '/',
   timeout: 30000,
   headers: {
     'Content-Type': 'application/json',
+    // 'Content-Type':'application/x-www-form-urlencoded'
   },
 });
 // request拦截器请求拦截
 service.interceptors.request.use(
   (config) => {
+    Vue.$loading.show();
+    // console.log(config)
     if (config.method === 'post') {
       config.data = JSON.stringify({
         ...config.data,
       });
     }
-    Indicator.open({
-      text: 'Loading...',
-      spinnerType: 'fading-circle'
-    });
     return config;
   },
   (error) => {
@@ -34,9 +35,9 @@ service.interceptors.request.use(
 // response拦截器响应拦截
 service.interceptors.response.use(
   (response) => {
-    Indicator.close();
+    Vue.$loading.hide();
     const res = response.data;
-    console.log("响应拦截的内容"+JSON.stringify(res))
+    // console.log(res)
     if (res.code === 999) {
       Toast({
         message: '请登录',
@@ -46,20 +47,20 @@ service.interceptors.response.use(
       // vm.$router.push('/login');
       return res;
     }
-    if (res.code === "AUTHENTICATION.JWT.TOKEN_EMPTY") {
-      Indicator.close();
+    if (res.code === "200") {
       return res;
-    }else{
+    } else{
       Toast({
-        message: res.msg,
+        message: "成功",
         position: 'bottom',
         duration: 3 * 1000,
       });
-      return Promise.reject(new Error((res && res.msg) ? res.msg : 'Error'));
+      return  res;
+      // return Promise.reject(new Error((res && res.msg) ? res.msg : 'Error'));
     }
   },
   (error) => {
-    Indicator.close();
+    Vue.$loading.hide();
     Toast({
       message: error.message,
       position: 'bottom',
@@ -102,7 +103,7 @@ filereq.interceptors.response.use(
         position: 'bottom',
         duration: 3 * 1000,
       });
-      vm.$router.push('/login');
+      // vm.$router.push('/login');
       return res;
     }
     if (res.code !== 200) {

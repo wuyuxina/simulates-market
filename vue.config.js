@@ -4,6 +4,8 @@ function resolve(dir) {
   return path.join(__dirname,dir);
 }
 const baseUrl = 'http://123.57.254.38:8080/maven_water_pay';
+// const baseUrl = 'http://192.168.153.1:8080/maven_water_pay';
+// const baseUrl = 'http://39.98.120.16:80/lvzhiApi';
 module.exports = {
   configureWebpack: {
     devtool: 'source-map',

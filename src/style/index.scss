@@ -1,3 +1,10 @@
+.project{
+  height: 100%;
+}
+.home{
+  height: 100%;
+}
+//添加伪类符
 /*
    *
      ***********公共头部导航栏样式**************
@@ -29,7 +36,7 @@
 .footerBar{
 
   .footer_ul{
-    height: 52px;position: fixed;bottom: 0px;left: 0px;box-shadow: 1px 2px 3px 4px rgba(0,0,0,0.1);overflow: hidden;width: 100%; background: #fff;display: flex;justify-content: space-between;
+    height: 52px;position: fixed;bottom: 0px;left: 0px;box-shadow: 1px 2px 3px 4px rgba(0,0,0,0.1);overflow: hidden;width: 100%; background: #fff;display: flex;justify-content: space-between;z-index: 99;
     li{
       flex: 1;
        a{
@@ -130,8 +137,17 @@
            background-image:-webkit-linear-gradient(bottom,#f1503b,#c82519 50%);position: absolute;top: 0;left: -25%;height: 7.25rem;width: 150%;border-bottom-left-radius: 50%;border-bottom-right-radius: 50%;
      }
   }
+  .swpier{
+    height: 150px;width: 85%;margin: 0 auto;margin-top: 20px;
+    .mt_swipe{
+
+    }
+    .mt_swipe_item{
+      background: red;
+    }
+  }
 }
-//添加伪类符
+
 
 
 
