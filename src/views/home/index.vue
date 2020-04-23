@@ -25,6 +25,8 @@
     </div>
     <!--      首页轮播开始-->
     <swiper :swiperList="imglist"></swiper>
+    <!--秘术奥义障眼法-->
+    <div class="roll" ></div>
     <!--列表按钮-->
     <div class="listbtn">
       <ul class="btn_ul">
@@ -35,6 +37,26 @@
               <p class="btn_title">{{item.title}}</p>
             </router-link>
           </mt-button>
+        </li>
+      </ul>
+    </div>
+    <!--优惠部分-->
+    <div class="row newspeople">
+      <router-link to="#" tag="div" class="newsone">
+        <img  src="@/assets/image/newpeople.png">
+      </router-link>
+      <router-link to="#" tag="div" class="newstwo">
+        <img  src="@/assets/image/newexclusive.png">
+      </router-link>
+    </div>
+    <!--每日逛-->
+    <div class="daysee">
+      <img src="@/assets/image/mrg.png" class="img_title">
+      <ul class="list_ul_day">
+        <li class="list_ul_li">
+          <h3 class="li_h3">免息星球</h3>
+          <p class="li_title">白条免息购</p>
+          <img class="li_img" src="@/assets/image/newexclusive.png">
         </li>
       </ul>
     </div>

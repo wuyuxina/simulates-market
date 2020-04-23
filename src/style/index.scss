@@ -12,7 +12,7 @@
 */
 .headerBar{
   .header{
-    line-height: 44px;position:fixed;top:0px;left:0px;width:100%; display: flex;justify-content: space-between;height: 44px;align-items: center; overflow: hidden;box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.1);
+    z-index: 999; line-height: 44px;position:fixed;top:0px;left:0px;width:100%; display: flex;justify-content: space-between;height: 44px;align-items: center; overflow: hidden;box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.1);
     .left_nav{
       width: 50px;height: 100%;text-align: center;line-height: 44px;
     }
@@ -114,6 +114,7 @@
    *
 */
 .home{
+  //头部导航部分开始
   .header_home{
     .bar_home_left{
       height:100%;
@@ -136,10 +137,15 @@
     .rbg_color{
            background-image:-webkit-linear-gradient(bottom,#f1503b,#c82519 50%);position: absolute;top: 0;left: -25%;height: 7.25rem;width: 150%;border-bottom-left-radius: 50%;border-bottom-right-radius: 50%;
      }
+    .header{
+      background:#c82519;
+    }
   }
+  //轮播图部分开始
   .swpier{
-    height: 120px;width: 85%;margin: 0 auto;margin-top: 20px;
+    height: 120px;width: 85%;margin: 0 auto;margin-top: 20px;border-radius: 5px;
     .mt_swipe{
+      border-radius: 7px;z-index: 4;
     }
     .mt_swipe_item{
       background: red;
@@ -148,8 +154,12 @@
       }
     }
   }
+  .roll{
+    position: absolute;width: 150%; height: 200px;left: -25%;z-index: -1; background: #fff;top:8.5rem;border-top-left-radius: 50%;border-top-right-radius: 50%;
+  }
+  //列表功能部分开始
   .listbtn{
-    overflow: hidden;width: 100%;
+    overflow: hidden;width: 100%;background: #fff;
     .btn_ul{
       display: flex;justify-content:space-between;flex-wrap: wrap;width: 96%;padding: 10px 2%;
       li{
@@ -166,6 +176,29 @@
         a:active{
           background-color: #f5f5f5;
         }
+      }
+    }
+  }
+  //新人专享部分开始
+  .newspeople{
+    width: 96%;overflow: hidden;padding: 10px 2%;border-top-left-radius: 25px;border-top-right-radius: 25px; display: flex;justify-content: space-between;
+    .newsone,.newstwo{
+      width: 50%;height: 8rem;
+      img{
+        height: 100%;width: 100%;
+      }
+    }
+  }
+  //每日逛
+  .daysee{
+    overflow: hidden;width: 96%;padding: 0px 2%;
+    .img_title{
+      width: 100%;height: 40px;
+    }
+    .list_ul_day{
+      display: block;width: 100%;
+      .list_ul_li{
+        background: #fff;
       }
     }
   }
