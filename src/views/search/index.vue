@@ -3,9 +3,9 @@
 <!--    引入header头部-->
     <header-bar>
 <!--      头左侧返回按钮-->
-      <div class="search_left" slot="left">
-        <i class="iconfont icon-caidan"></i>
-      </div>
+<!--      <div class="search_left" slot="left">-->
+<!--        <i class="iconfont icon-caidan"></i>-->
+<!--      </div>-->
 <!--      头中间的搜索功能-->
       <div class="serch_center" slot="center">
         <search>

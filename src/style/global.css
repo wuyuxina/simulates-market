@@ -27,6 +27,11 @@ a:active, a:hover,a:link{
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 
 }
+a:active{
+    background-color: #0000!important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+}
 button{border: 0px;color: #f2f2f2;}
 button:focus{ outline: none; }
 button::-moz-focus-inner{ border: 0; }
@@ -41,3 +46,4 @@ h1,h2,h3,h4,h5,h6{font-weight: normal;}
 .clearfix {display: inline-block;}
 /*如果单行隐藏*/
 .hide{width: 100%;overflow: hidden; white-space: nowrap;text-overflow: ellipsis;}
+.clearbtn{background: none;border: none;box-shadow: none;width: 100%;height:100%;padding: 0px;margin: 0px}

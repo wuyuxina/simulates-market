@@ -25,6 +25,19 @@
     </div>
     <!--      首页轮播开始-->
     <swiper :swiperList="imglist"></swiper>
+    <!--列表按钮-->
+    <div class="listbtn">
+      <ul class="btn_ul">
+        <li v-for="(item,index) in listbtn" :key="item.index">
+          <mt-button class="clearbtn">
+            <router-link :to="item.link">
+              <img class="btn_img" :src="item.img">
+              <p class="btn_title">{{item.title}}</p>
+            </router-link>
+          </mt-button>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -39,7 +52,39 @@
         name: "home",
         data(){
             return{
-                imglist:[]//轮播图数据
+              imglist:[],//轮播图数据
+              listbtn:[
+                {
+                  link:'#',
+                  img:require('@/assets/image/wf_list1.png'),
+                  title:'原創國際'
+                },
+                {
+                  link:'#',
+                  img:require('@/assets/image/wf_list1.png'),
+                  title:'原創國際'
+                },
+                {
+                  link:'#',
+                  img:require('@/assets/image/wf_list1.png'),
+                  title:'原創國際'
+                },
+                {
+                  link:'#',
+                  img:require('@/assets/image/wf_list1.png'),
+                  title:'原創國際'
+                },
+                {
+                  link:'#',
+                  img:require('@/assets/image/wf_list1.png'),
+                  title:'原創國際'
+                },
+                {
+                  link:'#',
+                  img:require('@/assets/image/wf_list1.png'),
+                  title:'原創國際'
+                }
+              ],
             }
         },
         mounted(){
