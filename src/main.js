@@ -17,7 +17,6 @@ import loading from './components/loading/loading' // 引入loading
 Vue.use(loading) // 全局使用loadingimport loading from './components/loading/loading' // 引入loading
 Vue.use(loading) // 全局使用loading
 Vue.config.productionTip = false
-
 new Vue({
   router,
   store,

@@ -58,6 +58,26 @@
           <p class="li_title">白条免息购</p>
           <img class="li_img" src="@/assets/image/newexclusive.png">
         </li>
+        <li class="list_ul_li">
+          <h3 class="li_h3">免息星球</h3>
+          <p class="li_title">白条免息购</p>
+          <img class="li_img" src="@/assets/image/newexclusive.png">
+        </li>
+        <li class="list_ul_li">
+          <h3 class="li_h3">免息星球</h3>
+          <p class="li_title">白条免息购</p>
+          <img class="li_img" src="@/assets/image/newexclusive.png">
+        </li>
+        <li class="list_ul_li">
+          <h3 class="li_h3">免息星球</h3>
+          <p class="li_title">白条免息购</p>
+          <img class="li_img" src="@/assets/image/newexclusive.png">
+        </li>
+        <li class="list_ul_li">
+          <h3 class="li_h3">免息星球</h3>
+          <p class="li_title">白条免息购</p>
+          <img class="li_img" src="@/assets/image/newexclusive.png">
+        </li>
       </ul>
     </div>
   </div>
