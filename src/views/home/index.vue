@@ -53,30 +53,10 @@
     <div class="daysee">
       <img src="@/assets/image/mrg.png" class="img_title">
       <ul class="list_ul_day">
-        <li class="list_ul_li">
-          <h3 class="li_h3">免息星球</h3>
-          <p class="li_title">白条免息购</p>
-          <img class="li_img" src="@/assets/image/newexclusive.png">
-        </li>
-        <li class="list_ul_li">
-          <h3 class="li_h3">免息星球</h3>
-          <p class="li_title">白条免息购</p>
-          <img class="li_img" src="@/assets/image/newexclusive.png">
-        </li>
-        <li class="list_ul_li">
-          <h3 class="li_h3">免息星球</h3>
-          <p class="li_title">白条免息购</p>
-          <img class="li_img" src="@/assets/image/newexclusive.png">
-        </li>
-        <li class="list_ul_li">
-          <h3 class="li_h3">免息星球</h3>
-          <p class="li_title">白条免息购</p>
-          <img class="li_img" src="@/assets/image/newexclusive.png">
-        </li>
-        <li class="list_ul_li">
-          <h3 class="li_h3">免息星球</h3>
-          <p class="li_title">白条免息购</p>
-          <img class="li_img" src="@/assets/image/newexclusive.png">
+        <li class="list_ul_li" v-for="item in daylist" :key="item.id">
+          <h3 class="li_h3">{{item.title}}</h3>
+          <p class="li_title">{{item.content}}</p>
+          <img class="li_img" :src="@/assets/image/newexclusive.png">
         </li>
       </ul>
     </div>
@@ -95,6 +75,7 @@
         data(){
             return{
               imglist:[],//轮播图数据
+              // 列表按钮数据
               listbtn:[
                 {
                   link:'#',
@@ -127,6 +108,8 @@
                   title:'原創國際'
                 }
               ],
+              //每日逛数据
+              daylist:[],
             }
         },
         mounted(){
