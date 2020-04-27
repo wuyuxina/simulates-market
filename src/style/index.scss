@@ -1,3 +1,4 @@
+//公共部分开始开始--------------------------------------------------------------------------
 .project{
   height: 100%;
 }
@@ -5,6 +6,38 @@
   height: 100%;
 }
 //添加伪类符
+/*
+   *
+     ***********商品列表 2列**************
+   *
+*/
+.indexShopListTwo{
+  overflow: hidden;width: 100%;
+  .shoplisttwo_ul{
+    overflow: hidden;display: flex;justify-content: space-between;
+    .ul_li{
+      width: 49%;margin-right: 2%;
+    }
+    .ul_li:nth-child(2n){
+      margin-right: 0px;
+      .shop_title_img{
+        width: 100%;height: 4rem;
+      }
+      .shop_title{
+        line-height: 20px;
+      }
+      .price_similarity{
+        display: flex;justify-content: space-between;
+        .price{
+          flex: 1;color:#c82519;
+        }
+        .similarity{
+          width:48px ;height: 23px;border: 1px solid #d2d2d2;line-height: 25px;text-align: center;
+        }
+      }
+    }
+  }
+}
 /*
    *
      ***********公共头部导航栏样式**************
@@ -85,6 +118,7 @@
     background:#f6f6f6;border: none;
   }
 }
+//公共部分开始结束--------------------------------------------------------------------------
 /*
    *
      ***********登录页面样式开始**************
@@ -114,6 +148,10 @@
    *
 */
 .home{
+  //公共部分开始
+  .img_title{
+    width: 100%;height: 40px;
+  }
   //头部导航部分开始
   .header_home{
     .bar_home_left{
@@ -154,6 +192,7 @@
       }
     }
   }
+  //障眼法部分开始
   .roll{
     position: absolute;width: 150%; height: 200px;left: -25%;z-index: -1; background: #fff;top:8.5rem;border-top-left-radius: 50%;border-top-right-radius: 50%;
   }
@@ -192,9 +231,6 @@
   //每日逛
   .daysee{
     overflow: hidden;width: 96%;padding: 0px 2%;
-    .img_title{
-      width: 100%;height: 40px;
-    }
     .list_ul_day{
       display: block;width: 100%;background: #fff; overflow: hidden;display: flex;justify-content: space-between;flex-wrap: wrap;
       .list_ul_li{
@@ -216,6 +252,14 @@
         border-top: none;
       }
     }
+  }
+  //快报
+  .marquee{
+    height: 35px;background: #fff;width: 96%;margin: 15px auto;
+  }
+  //为你推荐
+  .recommend{
+    background: #fff;
   }
 }
 
