@@ -2,7 +2,7 @@
   <div class="indexShopListTwo">
     <ul class="shoplisttwo_ul">
       <li class="ul_li">
-        <img class="shop_title_img" src="@/assets/image/mrg.png">
+        <img class="shop_title_img" src="@/assets/image/shoplist1.png">
         <p class="shop_title">
           味它小型犬博美狗粮成犬幼犬粮全犬期狗粮 2.5kg
         </p>
@@ -12,7 +12,7 @@
         </div>
       </li>
       <li class="ul_li">
-        <img class="shop_title_img" src="@/assets/image/mrg.png">
+        <img class="shop_title_img" src="@/assets/image/shoplist1.png">
         <p class="shop_title hide_more">
           味它小型犬博美狗粮成犬幼犬粮全犬期狗粮 2.5kg味它小型犬博美狗粮成犬幼犬粮全犬期狗粮 2.5kg
         </p>

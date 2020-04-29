@@ -16,25 +16,29 @@
   .shoplisttwo_ul{
     overflow: hidden;display: flex;justify-content: space-between;
     .ul_li{
-      width: 49%;margin-right: 2%;
-    }
-    .ul_li:nth-child(2n){
-      margin-right: 0px;
+      width: 49%;margin-right: 2%;background: #fff;
       .shop_title_img{
-        width: 100%;height: 4rem;
+        width: 100%;height: 14rem;
       }
+
       .shop_title{
-        line-height: 20px;
+        line-height: 20px;padding: 0 10px;
       }
       .price_similarity{
-        display: flex;justify-content: space-between;
+        display: flex;justify-content: space-between;align-items: center;padding: 0 10px;
         .price{
           flex: 1;color:#c82519;
+          .proce_em{
+            border: 1px solid #c82519;padding: 0 5px;margin-left: 5%;
+          }
         }
         .similarity{
           width:48px ;height: 23px;border: 1px solid #d2d2d2;line-height: 25px;text-align: center;
         }
       }
+    }
+    .ul_li:nth-child(2n){
+      margin-right: 0px;
     }
   }
 }
@@ -259,7 +263,7 @@
   }
   //为你推荐
   .recommend{
-    background: #fff;
+    width: 96%;margin: 0 auto;
   }
 }
 
