@@ -14,7 +14,7 @@
 .indexShopListTwo{
   overflow: hidden;width: 100%;
   .shoplisttwo_ul{
-    overflow: hidden;display: flex;justify-content: space-between;
+    overflow: hidden;display: flex;justify-content: space-between;margin-bottom: 20px;
     .ul_li{
       width: 49%;margin-right: 2%;background: #fff;
       .shop_title_img{
@@ -25,7 +25,7 @@
         line-height: 20px;padding: 0 10px;
       }
       .price_similarity{
-        display: flex;justify-content: space-between;align-items: center;padding: 0 10px;
+        display: flex;justify-content: space-between;align-items: center;padding: 0 10px;padding-bottom: 10px;
         .price{
           flex: 1;color:#c82519;
           .proce_em{
