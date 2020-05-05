@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import router from '../../router'
+import store from './../../store/index'
 import loadingComponent from '@/components/loading/loading.vue'
 const LoadingConstructor = Vue.extend(loadingComponent)
 
@@ -22,7 +23,7 @@ const loading = {
   },
   hide() { // 隐藏方法
     instance.show = false
-  }
+  },
 }
 
 export default {

@@ -1,11 +1,12 @@
 import axios from 'axios';
 import Vue from "vue";
 import { Toast } from 'mint-ui';
+import store from '../store/index'
 import Qs from 'querystring';
 import vm from '@/main';
 // import { Indicator } from 'mint-ui';
 axios.defaults.withCredentials = true;
-
+Vue.$loading.stophide==3
 // 创建axios实例
 const service = axios.create({
   baseURL: '/',
@@ -18,8 +19,11 @@ const service = axios.create({
 // request拦截器请求拦截
 service.interceptors.request.use(
   (config) => {
-    Vue.$loading.show();
-    // console.log(config)
+    if(store.state.stopshow){
+      Vue.$loading.show();
+    }else{
+      Vue.$loading.hide();
+    }
     if (config.method === 'post') {
       config.data = JSON.stringify({
         ...config.data,

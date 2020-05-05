@@ -5,7 +5,9 @@
       <div class="left_nav" ><slot name="left">
         <mt-button class="clearbtn"  icon="back" @click="$router.back(-1)"></mt-button>
       </slot></div>
-      <div class="center_nav"><slot name="center"></slot></div>
+      <div class="center_nav"><slot name="center">
+        <search></search>
+      </slot></div>
       <div class="right_nav"><slot name="right"></slot></div>
     </div>
     <div class="fill_header"></div>
@@ -13,8 +15,10 @@
 </template>
 
 <script>
+  import search from "./search/search";
     export default {
         name: "headerBar",
+        components:{search},
         data(){
             return{
 

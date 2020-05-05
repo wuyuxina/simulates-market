@@ -60,15 +60,35 @@
         </li>
       </ul>
     </div>
-    <!--巡风快报-->
+    <!--快报-->
     <div class="marquee">
-
+      <span class="marquee_title">快报</span>
+      <div class="marquee_div inner-container">
+        <ul id="marquee_ul" class="marquee_ul" :class="{anim:animate==true}" >
+          <li class="marquee_li" v-for="(item,index) in listmarquee" :key="index">
+            <router-link to="#">{{item.title}}</router-link>
+          </li>
+        </ul>
+      </div>
+      <mt-button class="marquee_more clearbtn">
+          <router-link to="#">更多</router-link>
+      </mt-button>
     </div>
     <!--为你推荐-->
     <div class="recommend">
       <img src="@/assets/image/recommend.png" class="img_title">
       <!--商品列表  2列-->
-      <index-shop-list-two></index-shop-list-two>
+    <div  v-infinite-scroll="loadMore"
+             infinite-scroll-disabled="loading"
+             infinite-scroll-distance="0"
+             infinite-scroll-immediate-check="false"
+      >
+      <index-shop-list-two :listshop="listshop"></index-shop-list-two>
+      <li class="wait-list-loading" v-show="queryLoading">
+        <span v-show="moreLoading&&!allLoaded">加载中...</span>
+        <span v-show="allLoaded">已全部加载</span>
+      </li>
+    </div>
     </div>
   </div>
 </template>
@@ -85,68 +105,97 @@
         name: "home",
         data(){
             return{
-              imglist:[],//轮播图数据
-              // 列表按钮数据
-              listbtn:[
-                {
-                  link:'#',
-                  img:require('@/assets/image/wf_list1.png'),
-                  title:'原創國際'
-                },
-                {
-                  link:'#',
-                  img:require('@/assets/image/wf_list1.png'),
-                  title:'原創國際'
-                },
-                {
-                  link:'#',
-                  img:require('@/assets/image/wf_list1.png'),
-                  title:'原創國際'
-                },
-                {
-                  link:'#',
-                  img:require('@/assets/image/wf_list1.png'),
-                  title:'原創國際'
-                },
-                {
-                  link:'#',
-                  img:require('@/assets/image/wf_list1.png'),
-                  title:'原創國際'
-                },
-                {
-                  link:'#',
-                  img:require('@/assets/image/wf_list1.png'),
-                  title:'原創國際'
-                }
-              ],
-              //每日逛数据
-              daylist:[
-                {
-                  title:'每日特价',
-                  content:'9块9疯抢',
-                  images:require('@/assets/image/daylist1.png')
-                },
-                {
-                  title:'品牌闪购',
-                  content:'汇大牌好价',
-                  images:require('@/assets/image/daylist2.png')
-                },
-                {
-                  title:'新品首发',
-                  content:'京东小魔方',
-                  images:require('@/assets/image/daylist3.png')
-                },
-                {
-                  title:'发现好货',
-                  content:'发现品质生活',
-                  images:require('@/assets/image/daylist4.png')
-                }
-              ],
+                animate:false,
+                //无限滚动所需参数开始
+                queryLoading: true,
+                loading: false,
+                moreLoading:true,
+                allLoaded: false,
+                //无限滚动所需参数结束
+                imglist:[],//轮播图数据
+                // 列表按钮数据
+                listbtn:[
+                  {
+                    link:'#',
+                    img:require('@/assets/image/wf_list1.png'),
+                    title:'原創國際'
+                  },
+                  {
+                    link:'#',
+                    img:require('@/assets/image/wf_list1.png'),
+                    title:'原創國際'
+                  },
+                  {
+                    link:'#',
+                    img:require('@/assets/image/wf_list1.png'),
+                    title:'原創國際'
+                  },
+                  {
+                    link:'#',
+                    img:require('@/assets/image/wf_list1.png'),
+                    title:'原創國際'
+                  },
+                  {
+                    link:'#',
+                    img:require('@/assets/image/wf_list1.png'),
+                    title:'原創國際'
+                  },
+                  {
+                    link:'#',
+                    img:require('@/assets/image/wf_list1.png'),
+                    title:'原創國際'
+                  }
+                ],
+                //每日逛数据
+                daylist:[
+                  {
+                    title:'每日特价',
+                    content:'9块9疯抢',
+                    images:require('@/assets/image/daylist1.png')
+                  },
+                  {
+                    title:'品牌闪购',
+                    content:'汇大牌好价',
+                    images:require('@/assets/image/daylist2.png')
+                  },
+                  {
+                    title:'新品首发',
+                    content:'京东小魔方',
+                    images:require('@/assets/image/daylist3.png')
+                  },
+                  {
+                    title:'发现好货',
+                    content:'发现品质生活',
+                    images:require('@/assets/image/daylist4.png')
+                  }
+                ],
+                //滚动数据
+                listmarquee:[
+                    {
+                        title:'学烘焙很简单，入门工具要必备1'
+                    },
+                    {
+                        title:'学烘焙很简单，入门工具要必备2'
+                    },
+                    {
+                        title:'学烘焙很简单，入门工具要必备3'
+                    },
+                    {
+                        title:'学烘焙很简单，入门工具要必备4'
+                    },
+                    {
+                        title:'学烘焙很简单，入门工具要必备5'
+                    }
+                ],
+                //列表数据
+                listshop:[],
             }
         },
         mounted(){
             //请求轮播图数据
-            this.httpswiper()
+            this.httpswiper();
+            setInterval(this.scroll,3000);
+            this.shoplist()
         },
         methods:{
             // 轮播图数据
@@ -161,7 +210,37 @@
                      })
                      that.imglist=listswiper;
                  })
-            }
+            },
+            //跑马灯滚动（竖向滚动）
+            scroll(){
+                this.animate=true;
+                setTimeout(()=>{
+                    this.listmarquee.push(this.listmarquee[0]);
+                    this.listmarquee.shift();
+                    this.animate=false;
+                },1000)
+            },
+            //传入列表数据
+            shoplist(){
+                let that=this;
+                setTimeout(()=>{
+                    for(let i=0;i<15; i++){
+                        that.listshop.push({
+                            shopimg:require("@/assets/image/daylist1.png"),
+                            name:'味它小型犬博美狗粮成犬幼犬粮全犬期狗粮'+i+'共2.5kg',
+                            price:'44.8',
+                        })
+                    }
+                    that.loading = false;
+                    this.moreLoading=false;
+                },1500)
+            },
+            loadMore(){
+                let that=this;
+                that.loading = true;
+                that.moreLoading=true;
+                that.shoplist();
+            },
         },
     }
 </script>

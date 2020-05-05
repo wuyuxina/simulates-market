@@ -1,11 +1,15 @@
 //公共部分开始开始--------------------------------------------------------------------------
 .project{
-  height: 100%;
+  height: 100%;overflow-y: auto;overflow-x: hidden; display: flex;justify-content: space-between;flex-direction: column;
 }
 .home{
+  flex:1;
+}
+.mine_hole{
   height: 100%;
 }
 //添加伪类符
+
 /*
    *
      ***********商品列表 2列**************
@@ -14,9 +18,9 @@
 .indexShopListTwo{
   overflow: hidden;width: 100%;
   .shoplisttwo_ul{
-    overflow: hidden;display: flex;justify-content: space-between;margin-bottom: 20px;
+    overflow: hidden;display: flex;justify-content: space-between;margin-bottom: 20px;flex-wrap: wrap;
     .ul_li{
-      width: 49%;margin-right: 2%;background: #fff;
+      width: 49%;margin-right: 2%;background: #fff;margin-bottom: 10px;
       .shop_title_img{
         width: 100%;height: 14rem;
       }
@@ -33,7 +37,7 @@
           }
         }
         .similarity{
-          width:48px ;height: 23px;border: 1px solid #d2d2d2;line-height: 25px;text-align: center;
+          width:48px ;height: 23px;border: 1px solid #d2d2d2;line-height: 23px;text-align: center;
         }
       }
     }
@@ -52,6 +56,9 @@
     z-index: 999; line-height: 44px;position:fixed;top:0px;left:0px;width:100%; display: flex;justify-content: space-between;height: 44px;align-items: center; overflow: hidden;box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.1);
     .left_nav{
       width: 50px;height: 100%;text-align: center;line-height: 44px;
+      i{
+        font-size: 19px;
+      }
     }
     .center_nav{
       flex: 1;height: 100%;text-align: center;line-height: 44px;overflow: hidden;padding:0 1%;
@@ -145,7 +152,16 @@
     position: absolute;left: 5%;top: 55%;width: 90%;
   }
 }
-
+/*
+   *
+     ***********搜索页面样式开始**************
+   *
+*/
+.search{
+  .headerBar{
+    background: #fff;
+  }
+}
 /*
    *
      ***********首页样式开始**************
@@ -177,7 +193,7 @@
       height: 100%
     }
     .rbg_color{
-           background-image:-webkit-linear-gradient(bottom,#f1503b,#c82519 50%);position: absolute;top: 0;left: -25%;height: 7.25rem;width: 150%;border-bottom-left-radius: 50%;border-bottom-right-radius: 50%;
+           background-image:-webkit-linear-gradient(bottom,#f1503b,#c82519 50%);position: relative;top: 0;left: -25%;height: 7.25rem;width: 150%;border-bottom-left-radius: 50%;border-bottom-right-radius: 50%;
      }
     .header{
       background:#c82519;
@@ -185,7 +201,7 @@
   }
   //轮播图部分开始
   .swpier{
-    height: 120px;width: 85%;margin: 0 auto;margin-top: 20px;border-radius: 5px;
+    height: 120px;width: 85%;margin: 0 auto;margin-top: 20px;border-radius: 5px;margin-top: -75px;
     .mt_swipe{
       border-radius: 7px;z-index: 4;
     }
@@ -198,11 +214,11 @@
   }
   //障眼法部分开始
   .roll{
-    position: absolute;width: 150%; height: 200px;left: -25%;z-index: -1; background: #fff;top:8.5rem;border-top-left-radius: 50%;border-top-right-radius: 50%;
+    position: relative;width: 150%; height: 200px;left: -25%;z-index: -1; background: #fff;top:-60px;border-top-left-radius: 50%;border-top-right-radius: 50%;
   }
   //列表功能部分开始
   .listbtn{
-    overflow: hidden;width: 100%;background: #fff;
+    overflow: hidden;width: 100%;background: #fff;margin-top: -200px;
     .btn_ul{
       display: flex;justify-content:space-between;flex-wrap: wrap;width: 96%;padding: 10px 2%;
       li{
@@ -259,18 +275,95 @@
   }
   //快报
   .marquee{
-    height: 35px;background: #fff;width: 96%;margin: 15px auto;
+    height: 35px;background: #fff;width: 96%;margin: 15px auto;display: flex;justify-content: space-between;align-items: center;
+    .marquee_title{
+      font-size: 20px;font-weight: bold;line-height: 35px; width: 16%;padding-right:3%;text-align: right;   background: -webkit-linear-gradient(90deg, #FF2A2A,#F139D2);-webkit-background-clip: text;-webkit-text-fill-color: transparent;
+    }
+    .marquee_div{
+      overflow: hidden;height: 100%;flex: 1;
+      .marquee_ul{
+        overflow: hidden;
+        li{
+          line-height: 35px;padding-left: 10px;
+        }
+      }
+    }
+    .marquee_more{
+      width: 14%;text-align: center;font-size: 14px;position: relative;line-height: 35px;
+    }
+    .marquee_more:before{
+      content: '';display: block;position: absolute;width: 1px;height: 25px;top: 5px;background: #eee;
+    }
   }
   //为你推荐
   .recommend{
-    width: 96%;margin: 0 auto;
+    width: 96%;margin: 0 auto;background: #eee;
   }
 }
 
+/*
+   *
+     ***********分类页面样式开始**************
+   *
+*/
+.category{
+  height: 100%;display: flex;justify-content: space-between;flex-direction: column;overflow: hidden;
+  .category_searh{
+    background: #fff;
+    .meun{
+      i{
+        font-size: 25px;
+      }
+    }
+  }
+  .category_tab{
+    display: flex;justify-content: space-between;flex: 1;overflow: hidden;overflow: scroll;
+    .category_ul{
+      width: 20%;text-align: center;line-height: 40px;overflow-y: auto;
+    }
+    .tabactive{
+      background: #fff;border-right: 1px solid #eee;
+    }
+    .category_content{
+      flex: 1;background: #fff;
+      .tab_content_ul{
+        padding: 10px;display: flex;justify-content: space-between;flex-wrap: wrap;display: none;
+        .tab_content_ul_li{
+          width: 33%;padding: 5px;box-sizing:border-box;
+          .tab_content_img{
+            width: 70px;height: 70px;margin: auto;display: block;
+          }
+          .tab_content_title{
+            text-align: center;display: block;line-height: 25px;
+          }
+        }
+      }
+      .tab_content_ul:nth-child(1){
+        display: flex;
+      }
+    }
+  }
+}
+/*
+   *
+     ***********我的页面样式开始**************
+   *
+*/
+.mine_hole{
+  height: 100%;
+  .mine{
+    .mine_header{
+      background: #fff;
+    }
+    .header_user{
+      background: linear-gradient(90deg,#eb3c3c,#ff7459);border-radius: 0 0 300px 300px/0 0 20px 20px;min-height: 130px;
+      .user_head{
+        height: 30px;line-height: 30px;text-align: right;
+      }
+    }
 
-
-
-
+  }
+}
 
 
 

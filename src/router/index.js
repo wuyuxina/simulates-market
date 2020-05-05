@@ -24,6 +24,7 @@ const routes = [
         meta: {
           title: '分类',
           bottomsflags:true,
+          stopshow:true,
         },
       },
       {
@@ -44,11 +45,22 @@ const routes = [
       },
       {
         path: 'mine',
-        component: () => import('../views/mine/index.vue'),
+        component: () => import('../views/mine/hole.vue'),
         meta: {
-          title: '我的',
+          title: '我的萝卜坑',
           bottomsflags:true,
         },
+        redirect:'mine/index',
+        children:[
+          {
+            path: 'index',
+            component: () => import('../views/mine/index/index.vue'),
+            meta: {
+              title: '我的首页',
+              bottomsflags:true,
+            },
+          }
+        ],
       },
       {
         path: 'search',
@@ -99,5 +111,14 @@ router.beforeEach((to,from,next)=>{
      let bottomsflags=false;
      store.commit('bottomshow',bottomsflags)
    }
+   //将全局loading需要加入白名单的加入到store
+  if(to.meta.stopshow){
+    let stopshows=false;
+    store.commit('stopshow',stopshows)
+  }else{
+    let stopshows=true;
+    store.commit('stopshow',stopshows)
+  }
+
 })
 export default router
